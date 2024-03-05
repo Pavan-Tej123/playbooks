@@ -1,0 +1,7 @@
+---
+- name: this playbook is used to create user
+  hosts: all
+  become: true
+  tasks: 
+  - name: creating a user
+    user: name=ram

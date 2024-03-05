@@ -1,0 +1,35 @@
+---
+- name: installing packages
+  hosts: webservers
+  become: true
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+  - name: start httpd service
+    service:
+      name: httpd
+      state: started
+  - name: install tree
+    yum:
+      name: tree
+      state: present
+
+- name: installing packages on ubuntu
+  hosts: dbservers
+  become: true
+  tasks:
+  - name: install apache2
+    apt:
+      name: apache2
+      state: present
+  - name: start apache2 service
+    service:
+      name: apache2
+      state: started
+  - name: install tree on ubuntu
+    apt: 
+      name: tree
+      state: present
+

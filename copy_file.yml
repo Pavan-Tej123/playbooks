@@ -1,0 +1,14 @@
+---
+- name: playbook to copy file
+  hosts: webservers
+  become: true
+  tasks:
+  - name: copy file
+    copy:
+      src: /opt/demofile
+      dest: /etc/demofile
+      remote_src: true
+      mode: '0700'
+      owner: "root"
+
+

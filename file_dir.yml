@@ -1,0 +1,19 @@
+---
+- name: creates files in webservers
+  hosts: webservers
+  become: true
+  tasks: 
+  - name: create file
+    file:
+      path: /opt/demofile
+      state: touch
+
+- name: creates directories in dbservers
+  hosts: dbservers
+  become: true
+  tasks:
+  - name: create directory
+    file:
+      path: /opt/demodir
+      state: directory
+
